@@ -1,4 +1,5 @@
 # Script and explanations can be found here: https://github.com/aaron-kaijser/Datastream-Equities
+# Author: Aaron Kaijser
 
 rm(list=ls())
 gc()
