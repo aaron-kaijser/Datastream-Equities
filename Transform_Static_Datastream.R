@@ -1,12 +1,14 @@
+# Script and explanations can be found here: https://github.com/aaron-kaijser/Datastream-Equities
+
 rm(list=ls())
 gc()
 
 library(data.table)
 library(stringr)
 
-data <- fread("E:/Thesis/UK/NL_Static_Request_WSCOPENL.csv")
-data2 <- fread("E:/Thesis/UK/NL_Static_Request_FHOL.csv")
-data3 <- fread("E:/Thesis/UK/NL_Static_Request_DEADNL.csv")
+data <- fread("https://raw.githubusercontent.com/aaron-kaijser/Datastream-Equities/main/NL_Static_Request_WSCOPENL.csv")
+data2 <- fread("https://raw.githubusercontent.com/aaron-kaijser/Datastream-Equities/main/NL_Static_Request_FHOL.csv")
+data3 <- fread("https://raw.githubusercontent.com/aaron-kaijser/Datastream-Equities/main/NL_Static_Request_DEADNL.csv")
 
 transform_static <- function(data) {
   # Data wrangling
@@ -49,6 +51,6 @@ final_codes <- unique(c(transform_static(data), transform_static(data2), transfo
 # final_codes <- unique(rbind(transform_static(data), transform_static(data2), transform_static(data3)), by = "ISIN CODE")
 
 # Saving as .txt file
-write.table(final_codes, "E:/Thesis/UK/NL_final_codes.txt", quote = F, row.names = F, col.names = F)
+write.table(final_codes, "C:/NL_final_codes.txt", quote = F, row.names = F, col.names = F)
 
 
